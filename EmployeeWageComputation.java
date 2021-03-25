@@ -6,9 +6,17 @@ public class EmployeeWageComputation
 	final static int IS_FULL_TIME = 1;
 	final static int FULL_TIME_WORKING_HRS = 8;
 	final static int PART_TIME_WORKING_HRS = 4;
-	final static int WAGE_PER_HR = 20;
-	final static int WORKING_DAYS_IN_MONTH = 20;
-	final static int MAX_WORKING_HRS = 100;
+	static int WAGE_PER_HR;
+	static int WORKING_DAYS_IN_MONTH;
+	static int MAX_WORKING_HRS;
+
+	//company details
+	public static void company(String company_name, int wagePerHr, int workingDaysPerMonth,int workingHrsPerMonth)
+	{
+		WAGE_PER_HR = wagePerHr;
+		WORKING_DAYS_IN_MONTH = workingDaysPerMonth;
+		MAX_WORKING_HRS = workingHrsPerMonth;
+	}
 
 	//To calculate wage of employee
 	public static int employeeWage(int workingHrs)
@@ -25,6 +33,13 @@ public class EmployeeWageComputation
 		int empDailyWage = 0;
 		int empMonthlyWage = 0;
 		int totalWorkingHrs = 0;
+		String company1 = "Burger King";
+		String company2 = "Pizza Hut";
+		String company3 = "McDonalds";
+		String company4 = "KFC";
+
+		//calling company-method for distinct company
+		company(company1, 30, 15, 60); // company_name, wagePerHr, workingDaysPerMonth, workingHrsPerMonth
 
 		//CONDITION AND CALCULATION
 		while((dayOfMonth < WORKING_DAYS_IN_MONTH) && (totalWorkingHrs < MAX_WORKING_HRS))
