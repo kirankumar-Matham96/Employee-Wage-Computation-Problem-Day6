@@ -1,16 +1,25 @@
 public class EmployeeWageComputation
 {
+	//class variables or global variables
+	//CONSTANTS
+	final static int IS_PRESENT = 1;
+	final static int IS_FULL_TIME = 1;
+	final static int FULL_TIME_WORKING_HRS = 8;
+	final static int PART_TIME_WORKING_HRS = 4;
+	final static int WAGE_PER_HR = 20;
+	final static int WORKING_DAYS_IN_MONTH = 20;
+	final static int MAX_WORKING_HRS = 100;
+
+	//To calculate wage of employee
+	public static int employeeWage(int workingHrs)
+	{
+		int dailyWage = workingHrs * WAGE_PER_HR;
+		return dailyWage;
+	}
+
+	//main method
 	public static void main(String[] args)
 	{
-		//CONSTANTS
-		final int IS_PRESENT = 1;
-		final int IS_FULL_TIME = 1;
-		final int WAGE_PER_HR = 20;
-		final int FULL_TIME_WORKING_HRS = 8;
-		final int PART_TIME_WORKING_HRS = 4;
-		int WORKING_DAYS_IN_MONTH = 20;
-		int MAX_WORKING_HRS = 100;
-
 		//VARIABLES
 		int dayOfMonth = 0;
 		int empDailyWage = 0;
@@ -28,11 +37,11 @@ public class EmployeeWageComputation
 					switch(checkWorkingTime)
 					{
 						case IS_FULL_TIME:
-							empDailyWage = FULL_TIME_WORKING_HRS * WAGE_PER_HR;
+							empDailyWage = employeeWage(FULL_TIME_WORKING_HRS);
 							totalWorkingHrs += FULL_TIME_WORKING_HRS;
 							break;
 						default:
-							empDailyWage = PART_TIME_WORKING_HRS * WAGE_PER_HR;
+							empDailyWage = employeeWage(PART_TIME_WORKING_HRS);
 							totalWorkingHrs += PART_TIME_WORKING_HRS;
 					}
 					empMonthlyWage += empDailyWage;
